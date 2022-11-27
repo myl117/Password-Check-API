@@ -1,6 +1,6 @@
 # K-Anonymity Password Lookup API
 
-An API which allows you to check a password or prefix hash to a database of known leaked passwords. Utilizes hash k-anonymization. Built with Node.js (Express JS).
+An API that allows you to check a password or prefix hash to a database of known leaked passwords. Utilizes hash k-anonymization. Built with Node.js (Express JS).
 
 ## References
 
