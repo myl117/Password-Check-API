@@ -7,7 +7,7 @@ const passwords = (fs.readFileSync('./data/top-100000-passwords.txt')).toString(
 // k-anonymity dictionary
 let dictionary = {}
 
-// iterate through passwords, hash with SHA-1 and store first 3 chars as dict key
+// iterate through passwords, hash with SHA-1 and store first 4 chars as dict key
 for (let password of passwords) {
   password = sha1(password);
   let prefix = password.slice(0, 4);
