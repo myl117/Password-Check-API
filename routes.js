@@ -3,9 +3,9 @@ const sha1 = require('sha1');
 const dict = require('./data/dict.json');
 
 // compare full hash to dict
-router.get('/lookup/:password', function (req, res) {
+router.post('/lookup', function (req, res) {
   try {
-    const { password } = req.params;
+    const { password } = req.body;
     const hash = sha1(password);
     const prefix = hash.slice(0, 4);
 
@@ -25,7 +25,8 @@ router.get('/lookup/:password', function (req, res) {
       message: 'Password is NOT in the top 100,000 leaked passwords DB.',
     });
   } catch (e) {
-    res.sendStatus(500);
+    console.log(e);
+    res.sendStatus(400);
   }
 });
 
@@ -40,7 +41,7 @@ router.get('/prefix-lookup/:prefix', function (req, res) {
       res.status(404).send('No hashes found for the requested prefix.');
     }
   } catch (e) {
-    res.sendStatus(500);
+    res.sendStatus(400);
   }
 });
 
